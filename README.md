@@ -1,2 +1,2 @@
 ﻿# Hospital-Management-System
-A Hospital Management System that uses react, html and css for the frontend and mySQL as the backend database.
+A Hospital Management System that uses React, HTML and CSS for the frontend and mySQL as the backend database.
