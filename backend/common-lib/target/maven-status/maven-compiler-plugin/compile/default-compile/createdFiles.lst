@@ -1,0 +1,3 @@
+com/hospital/common/exception/ResourceNotFoundException.class
+com/hospital/common/dto/ErrorResponse.class
+com/hospital/common/dto/ApiResponse.class

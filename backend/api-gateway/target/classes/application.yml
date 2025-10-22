@@ -1,0 +1,82 @@
+spring:
+  application:
+    name: api-gateway
+  
+  cloud:
+    gateway:
+      routes:
+        # Patient Service Routes
+        - id: patient-service
+          uri: ${PATIENT_SERVICE_URL:http://localhost:8081}
+          predicates:
+            - Path=/api/v1/patients/**
+          filters:
+            - RewritePath=/api/v1/patients/(?<segment>.*), /api/v1/patients/$\{segment}
+        
+        # Doctor Service Routes
+        - id: doctor-service
+          uri: ${DOCTOR_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/doctors/**
+          filters:
+            - RewritePath=/api/v1/doctors/(?<segment>.*), /api/v1/doctors/$\{segment}
+        
+        # Appointment Service Routes
+        - id: appointment-service
+          uri: ${APPOINTMENT_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/appointments/**
+          filters:
+            - RewritePath=/api/v1/appointments/(?<segment>.*), /api/v1/appointments/$\{segment}
+        
+        # Billing Service Routes
+        - id: billing-service
+          uri: ${BILLING_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/api/v1/invoices/**
+          filters:
+            - RewritePath=/api/v1/invoices/(?<segment>.*), /api/v1/invoices/$\{segment}
+        
+        # Auth Service Routes (for login/register)
+        - id: auth-service
+          uri: ${AUTH_SERVICE_URL:http://localhost:8080}
+          predicates:
+            - Path=/api/v1/auth/**
+          filters:
+            - RewritePath=/api/v1/auth/(?<segment>.*), /api/v1/auth/$\{segment}
+      
+      # Global CORS Configuration
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowed-headers: "*"
+            allow-credentials: false
+            max-age: 3600
+
+server:
+  port: 8080
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:hospital-management-system-secret-key-change-in-production}
+  expiration: 86400000 # 24 hours in milliseconds
+
+# Public endpoints (no authentication required)
+public:
+  endpoints:
+    - /api/v1/auth/login
+    - /api/v1/auth/register
+    - /api/v1/auth/refresh
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    reactor.netty: INFO
