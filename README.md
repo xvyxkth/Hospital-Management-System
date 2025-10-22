@@ -258,28 +258,3 @@ mvn clean install -U
 # Skip tests
 mvn clean install -DskipTests
 ```
-
-## Future Enhancements
-
-- [ ] Add Redis caching layer
-- [ ] Implement API Gateway with JWT authentication
-- [ ] Add service discovery with Eureka
-- [ ] Implement circuit breakers with Resilience4j
-- [ ] Add notification service (email/SMS)
-- [ ] Build React frontend
-- [ ] Add API documentation with Swagger/OpenAPI
-- [ ] Implement comprehensive logging with ELK stack
-- [ ] Add monitoring with Prometheus & Grafana
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-
-This project is a personal learning project and is not licensed for commercial use.
-# Hospital-Management-System
