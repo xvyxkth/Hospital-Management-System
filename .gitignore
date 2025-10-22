@@ -1,0 +1,106 @@
+# Java / Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+*.swp
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+bin/
+
+# IDE - VS Code
+.vscode/
+*.code-workspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Node / React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# React build output
+frontend/hospital-ui/build/
+frontend/hospital-ui/.env.local
+frontend/hospital-ui/.env.development.local
+frontend/hospital-ui/.env.test.local
+frontend/hospital-ui/.env.production.local
+
+# Testing
+coverage/
+*.log
+
+# Docker volumes (data should not be committed)
+postgres-data/
+redis-data/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Spring Boot
+*.pid
+*.gz
+spring-boot-*.log
+
+# Database dumps
+*.sql
+*.dump
+
+# Temporary files
+temp/
+tmp/
+*.bak
+
+# Secrets (never commit these!)
+secrets/
+*.pem
+*.key
+*.cert
+
+# Package files
+*.tgz
+*.tar.gz
+*.zip
